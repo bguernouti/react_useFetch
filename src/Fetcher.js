@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
+import {AppContext} from "./context/AppContext";
 
-const useFetch = (url, options,deps) => 
+const useFetch = (url, options) => 
 {
     const [response, setResponse] = React.useState(null);
     //const [isLoading, setIsLoading] = React.useState(false);
@@ -13,7 +14,7 @@ const useFetch = (url, options,deps) =>
             setResponse(result);
         }
         Fetcher()
-    },deps);
+    },[]);
     return response;
 }
 
