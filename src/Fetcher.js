@@ -1,6 +1,6 @@
 import React from "react";
 
-const useFetch = (url, options) => 
+const useFetch = (url, options,deps) => 
 {
     const [response, setResponse] = React.useState(null);
     //const [isLoading, setIsLoading] = React.useState(false);
@@ -13,7 +13,7 @@ const useFetch = (url, options) =>
             setResponse(result);
         }
         Fetcher()
-    },[]);
+    },deps);
     return response;
 }
 
