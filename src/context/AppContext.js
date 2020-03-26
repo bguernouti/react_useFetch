@@ -1,5 +1,4 @@
 import React, {createContext} from "react";
-import { useFetch } from "../Fetcher";
 
 export const AppContext = createContext(true);
 
@@ -9,8 +8,6 @@ const AppContextProvider = (props) =>
     
     const [users, setUsers ] = React.useState({})
     const [albums, setAlbums ] = React.useState({})
-
-    const res = useFetch(USERS_URL,{})
     return (
         <AppContext.Provider value={
             {

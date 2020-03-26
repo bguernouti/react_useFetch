@@ -9,7 +9,7 @@ const Albums = (props) =>
     const URL_All = "https://jsonplaceholder.typicode.com/users/1/albums";
 
     const ctx= useContext(AppContext);
-    const res = useFetch(URL_All,{},[count])
+    const res = useFetch(URL_All,{},[ctx.users])
     
     if (!res) {
         return (
@@ -19,9 +19,10 @@ const Albums = (props) =>
 
     const handleChange = (e) => 
     {
-        let c = count;
-        setCount(c+1)
+        ctx.setAlbums(res);
+        
     }
+    console.log("Albums Rendered")
 
     return (
         <React.Fragment>

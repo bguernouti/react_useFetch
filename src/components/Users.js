@@ -2,7 +2,6 @@ import React, {useContext, useState, useEffect} from "react"
 import {useFetch} from "../Fetcher";
 import {AppContext} from "../context/AppContext"
 import User from "./User"
-import Albums from "./Albums";
 
 const Users = (props) => 
 {
@@ -21,7 +20,7 @@ const Users = (props) =>
     }
 
     const ctx = useContext(AppContext);
-    const res = useFetch(URL_All,{})
+    const res = useFetch(URL_All,{},[ctx.albums])
     
     if (!res) {
         return (
@@ -31,12 +30,11 @@ const Users = (props) =>
 
     const handleChange = (e) => 
     {
-        let c = count;
-        setCount(c+1)
-        useEffect(URL_All)
-    }
+        ctx.setUsers(res);
+    }    
 
-    console.log(count)
+    console.log("Users Rendered ");
+
     return (
         <React.Fragment>
             <table border="1">

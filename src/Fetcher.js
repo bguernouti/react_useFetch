@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
-import {AppContext} from "./context/AppContext";
 
-const useFetch = (url, options) => 
+const useFetch = (url, options,deps) => 
 {
     const [response, setResponse] = React.useState(null);
     //const [isLoading, setIsLoading] = React.useState(false);
